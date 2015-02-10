@@ -1,0 +1,5 @@
+﻿Effects.aspx JQuery Effects
+JQuery.aspx JQuery Effects 2
+Animate.aspx Image Animations
+Slider.aspx  JQuery UI Slider
+Tab.aspx     JQuery UI Tab
