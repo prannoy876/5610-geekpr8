@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<div class="container" ng-controller = "myController">
+ <table class="table table-striped">
+     <thead>
+     <tr>
+           <th>Name</th>
+           <th>Description</th>
+           <th><a href="#/new" class="glyphicon glyphicon-plus-sign"></a></th>
+     </tr>
+     </thead>
+      <tr ng-repeat="person in Crew">
+           <td>{{person.name}}</td>
+           <td>{{person.description}}</td>
+           <td><i class="glyphicon glyphicon-edit"></i></td>
+     </tr>
+     <tbody>
+     </tbody>
+  </table>
+  </div>

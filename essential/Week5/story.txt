@@ -1,0 +1,4 @@
+﻿AngularRouting.html  Loading partials using Routing
+AngularRouting2.html Sharing Data between Views using Factory
+AngularRouting3.html Simple Web Navigation using Routing
+AnglarRouting4.html Angular Routing using Parameters

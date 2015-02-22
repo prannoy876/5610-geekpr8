@@ -1,0 +1,17 @@
+﻿<div class="container" ng-controller = "CourseworkCtrl">
+ <table class="table table-striped">
+     <thead>
+     <tr>
+           <th>Course ID</th>
+           <th>Course Name</th>
+     </tr>
+     </thead>
+      <tr ng-repeat="course in coursework">
+           <td>{{course.id}}</td>
+           <td>{{course.name}}</td>
+     </tr>
+     <tbody>
+     </tbody>
+  </table>
+  </div>
+

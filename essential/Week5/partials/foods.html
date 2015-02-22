@@ -1,0 +1,10 @@
+﻿<div class="row" ng-controller="FoodCtrl">
+  <div class="col-sm-6 col-md-4" ng-repeat="food in foodInfo">
+    <div class="thumbnail">
+      <img src="{{ food.image}}" alt="...">
+      <div class="caption">
+        <h3>{{ food.title}}</h3>
+        <p><a href="#/foodInfo/{{food.title}}" class="btn btn-primary" role="button">Food Info</a> 
+      </div>
+    </div>
+  </div>
