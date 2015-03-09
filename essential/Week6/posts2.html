@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.min.js"></script>
+    <script src="js/posts.js"></script>
+ 
+
+</head>
+
+<style>
+.movie-container
+{
+   padding:100px;
+}
+
+.input-group
+{
+    margin:0px;
+}
+.poster
+{
+    margin:5px;
+    float:left;
+}
+.well
+{
+    margin:0px;
+    width:900px;
+}
+
+ul,li
+{
+    width:900px;
+}
+</style>
+<body ng-app="PostApp">
+
+ <nav class="navbar  navbar-fixed-top navbar-inverse" id="my-navbar">
+       <div class="container">
+         <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+             </button>
+              <a href="" class="navbar-brand">cs5610</a>
+          </div>
+
+          
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <a href="Experiments.aspx" class="btn btn-info navbar-btn navbar-right">Experiments</a>
+                <ul class=" nav navbar-nav">
+                   <li class="active"><a href="../Default.aspx">Home</a></li>
+                </ul>
+            </div>
+       </div>
+  </nav>
+
+  <div ng-controller="PostCtrl" class="movie-container container" >
+   <div class="container" ng-repeat="p in posts">
+   <div class="well" >
+   {{p.post}}
+   </div>
+   <ul class="list-group">
+   <li class="list-group-item" ng-repeat="c in comments" ng-if="c.id==p.id">
+   {{c.comment}}
+   </li> 
+  <li class="input-group">
+   <input type="text" ng-model="$parent.newComment" style="height:45px" class="form-control">
+   <span class="input-group-btn">
+        <button class="btn btn-success" ng-click="addComment(p.id)" style="height:45px" type="button">Post</button>
+   </span>
+   </li>
+   </ul>
+  </div>
+  </div>
+
+
+
+  <div class="summary">
+    <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">About the Experiment</h3>
+  </div>
+  <div class="panel-body">
+    <pre>
+    In This experiment we make use of the ng-if directive in order
+    to display a list of posts and comments that are related to each post.
+
+    Now we enable the user to add comments and re render the page
+    such that the new comment posted is added to the approprite 
+    post.We use the directive ng-model="$parent.newComment" to display 
+    the comments correctly.
+    </pre>
+</div>
+ </div>
+
+ <div class="summary">
+    <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">HTML5</h3>
+  </div>
+  <div class="panel-body">
+   &lt;div ng-controller=&quot;PostCtrl&quot; class=&quot;movie-container container&quot; &gt;<br />
+   &lt;div class=&quot;container&quot; ng-repeat=&quot;p in posts&quot;&gt;<br />
+   &lt;div class=&quot;well&quot; &gt;<br />
+   {{p.post}}<br />
+   &lt;/div&gt;<br />
+   &lt;ul class=&quot;list-group&quot;&gt;<br />
+   &lt;li class=&quot;list-group-item&quot; ng-repeat=&quot;c in comments&quot; ng-if=&quot;c.id==p.id&quot;&gt;<br />
+   {{c.comment}}<br />
+   &lt;/li&gt; <br />
+  &lt;li class=&quot;input-group&quot;&gt;<br />
+   &lt;input type=&quot;text&quot; ng-model=&quot;$parent.newComment&quot; style=&quot;height:45px&quot; class=&quot;form-control&quot;&gt;<br />
+   &lt;span class=&quot;input-group-btn&quot;&gt;<br />
+        &lt;button class=&quot;btn btn-success&quot; ng-click=&quot;addComment(p.id)&quot; style=&quot;height:45px&quot; type=&quot;button&quot;&gt;Post&lt;/button&gt;<br />
+   &lt;/span&gt;<br />
+   &lt;/li&gt;<br />
+   &lt;/ul&gt;<br />
+  &lt;/div&gt;<br />
+  &lt;/div&gt;
+  </div>
+</div>
+ </div>
+
+ <div class="summary">
+    <div class="panel panel-default">
+       <div class="panel-heading">
+          <h3 class="panel-title">Javascript</h3>
+       </div>
+     <div class="panel-body">
+       <pre>
+var app = angular.module("PostApp", ['ngResource']);
+
+app.controller("PostCtrl", function ($scope, $resource) {
+
+
+    $scope.posts = [{ id: '1', post: 'This is Post 1' },
+                   { id: '2', post: 'This is Post 2' },
+                   { id: '3', post: 'This is Post 3' },
+                   { id: '4', post: 'This is Post 4'}];
+
+    $scope.comments = [{ id: '1', comment: 'This is comment 1 for post 1' },
+                     { id: '1', comment: 'This is comment 2 for post 1' },
+                     { id: '2', comment: 'This is comment 1 for post 2' },
+                     { id: '2', comment: 'This is comment 2 for post 2' },
+                     { id: '2', comment: 'This is comment 3 for post 2' },
+                     { id: '3', comment: 'This is comment 1 for post 3' },
+                     { id: '3', comment: 'This is comment 1 for post 3'}];
+
+    $scope.addComment = function (index) {
+
+        var newcomment = { id: index, comment: $scope.newComment };
+        $scope.comments.push(newcomment);
+        $scope.newComment=null;
+    }
+
+}); 
+
+       </pre>
+      </div>
+   </div>
+ </div>
+
+ 
+
+ 
+
+  <div class="summary">
+
+  <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">References</h3>
+  </div>
+  <div class="panel-body">
+    <pre>
+
+    I referred to professor Jose's video on youtube.Here is the link.
+    </pre>
+    <a href="https://www.youtube.com/watch?v=Kan1sMNOlIc">Click to View</a>
+</div>
+ </div>
+  
+  </div>
+
+  <div class="container">
+        <div class="btn-group">
+             <a href="../fileview/Default.aspx?~/Week5/posts2.html" class="btn btn-primary">View Source HTML</a>
+             <a href="../fileview/Default.aspx?~/Week5/js/posts.js" class="btn btn-primary">View Javascript</a>      
+        <div>
+  </div>
+
+ 
+</body>
+</html>
