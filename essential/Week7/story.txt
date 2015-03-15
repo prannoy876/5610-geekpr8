@@ -1,0 +1,6 @@
+﻿Characters.html  Integrating 3rd Party API for Project  
+Movies.html      Filtering results from MONGODB and Node.js
+Movies2.html     Making updates using Node.js,MongoDB and Mongoose.
+Signup.html      Sign Up form using MEAN
+Login.html       Login Form using MEAN 
+  

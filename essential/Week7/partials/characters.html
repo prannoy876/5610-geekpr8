@@ -1,0 +1,24 @@
+﻿<body>
+
+  <div ng-controller="MarvelController" class="movie-container container" >
+     <div class="input-group">
+         <input type="text" placeholder="Enter a search query" class="form-control" ng-model="searchByTitle" />
+         <span class="input-group-btn">
+         <button class="btn btn-primary" ng-click="searchMovies()"><span class="glyphicon glyphicon-search" /></button>
+         </span>
+     </div>
+     
+     </br>
+     </br>
+
+      <table class="table">
+            <tr ng-repeat="char in character">
+              <td><div>{{char.name}}</br>
+              <img class="poster" src="{{char.thumbnail.path}}.{{ char.thumbnail.extension}}" width="90" height="90" /></div></td>
+              <td>{{char.description}}</td>
+            </tr>
+         </table>
+       
+  </div>
+ 
+  </body>

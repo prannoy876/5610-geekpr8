@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.min.js"></script>
+    <script src="js/Crud.js"></script>
+ 
+
+</head>
+
+<style>
+.movie-container
+{
+   padding:100px;
+}
+.poster
+{
+    margin:5px;
+    float:left;
+}
+.well
+{
+    margin:0px;
+    width:900px;
+}
+
+ul,li
+{
+    width:900px;
+}
+</style>
+<body>
+
+ <nav class="navbar  navbar-fixed-top navbar-inverse" id="my-navbar">
+       <div class="container">
+         <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+             </button>
+              <a href="" class="navbar-brand">cs5610</a>
+          </div>
+
+          
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <a href="Experiments.aspx" class="btn btn-info navbar-btn navbar-right">Experiments</a>
+                <ul class=" nav navbar-nav">
+                   <li class="active"><a href="../Default.aspx">Home</a></li>
+                </ul>
+            </div>
+       </div>
+  </nav>
+
+  <div class="movie-container container" >
+
+  <a href="http://prannoy5610-crazyfunkadelic.rhcloud.com/container.html#/signup" class="btn btn-primary">View Demo</a>
+
+  </div>
+  </div>
+
+
+
+  <div class="summary">
+    <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">About the Experiment</h3>
+  </div>
+  <div class="panel-body">
+    <pre>
+        This experiment is actually the sign up page of my project.I am using
+      angular the angular js routing to load this page on '/signup' url.
+
+        Once all the fields have been validated the sign up button is
+      activated and all the data is stored in mongo-db table back end.
+
+
+       To make sure if you sign up worked,Move on to the next experiemnt which will
+       be the Login page.I will iteratively be improving User Experience on these
+       pages such as letting the user know if the sign-up worked or not.
+
+    </pre>
+</div>
+ </div>
+
+ <div class="summary">
+    <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">HTML5</h3>
+  </div>
+  <div class="panel-body">
+ &lt;div class=&quot;container center-block&quot; ng-controller = &quot;SignUpController&quot;&gt;<br />
+   &lt;form name=&quot;frm&quot; &gt;<br />
+    &lt;legend&gt;Sign Up!&lt;/legend&gt;<br />
+    &lt;div class=&quot;form-group&quot;&gt;<br />
+       &lt;input placeholder=&quot;First Name&quot; class=&quot;form-control&quot; name=&quot;fname&quot; ng-model=&quot;user.fname&quot; required /&gt;<br />
+       &lt;br /&gt;<br />
+       &lt;span class=&quot;well&quot;ng-show=&quot;frm.fname.$dirty &amp;&amp; frm.fname.$error.required&quot;&gt;First Name is required&lt;/span&gt;<br />
+    &lt;/div&gt;<br />
+<br />
+<br />
+     &lt;div class=&quot;form-group&quot;&gt;<br />
+       &lt;input placeholder=&quot;Last Name&quot; class=&quot;form-control&quot; name=&quot;lname&quot; ng-model=&quot;user.lname&quot; required /&gt;<br />
+       &lt;/br/&gt;<br />
+       &lt;span  class=&quot;well&quot;ng-show=&quot;frm.lname.$dirty &amp;&amp; frm.lname.$error.required&quot;&gt;Last name is required&lt;/span&gt;<br />
+    &lt;/div&gt;<br />
+<br />
+<br />
+     &lt;div class=&quot;form-group&quot;&gt;<br />
+       &lt;input type=&quot;email&quot;  placeholder=&quot;Email&quot; class=&quot;form-control&quot; name=&quot;email&quot; ng-model=&quot;user.email&quot; required /&gt;<br />
+       &lt;br /&gt;<br />
+       &lt;span  class=&quot;well&quot; ng-show=&quot;frm.email.$dirty &amp;&amp; frm.email.$error.required&quot;&gt;Email is required&lt;/span&gt;<br />
+       &lt;span class=&quot;well&quot; ng-show=&quot;frm.email.$dirty &amp;&amp; frm.email.$error.email&quot;&gt;Not a valid email&lt;/span&gt;<br />
+     &lt;/div&gt;<br />
+<br />
+<br />
+      &lt;div class=&quot;form-group&quot;&gt;<br />
+       &lt;input type=&quot;password&quot; placeholder=&quot;Enter a password between 8 and 20 chars&quot; class=&quot;form-control&quot; name=&quot;password&quot; ng-model=&quot;user.password&quot; ng-minlength=&quot;5&quot; ng-maxlength=&quot;10&quot; required /&gt;<br />
+       &lt;br /&gt;<br />
+       &lt;span class=&quot;well&quot; ng-show=&quot;frm.password.$dirty &amp;&amp; frm.password.$error.required&quot;&gt;Password is required&lt;/span&gt;<br />
+       &lt;span class=&quot;well&quot; ng-show=&quot;frm.password.$dirty &amp;&amp; frm.password.$error.minlength&quot;&gt;Too Short!&lt;/span&gt;<br />
+       &lt;span class=&quot;well&quot; ng-show=&quot;frm.password.$dirty &amp;&amp; frm.password.$error.maxlength&quot;&gt;Too Long!&lt;/span&gt;<br />
+     &lt;/div&gt; <br />
+<br />
+     &lt;div class=&quot;form-group&quot;&gt;<br />
+     &lt;br /&gt;<br />
+     &lt;br /&gt;<br />
+     &lt;button ng-disabled=&quot;frm.$invalid&quot; ng-click=&quot;insert(user)&quot; class=&quot;btn btn-primary&quot;&gt;Register&lt;/button&gt;<br />
+     &lt;/div&gt;<br />
+    &lt;/form&gt;<br />
+ &lt;/div&gt;<br />
+
+  </div>
+</div>
+ </div>
+
+ <div class="summary">
+    <div class="panel panel-default">
+       <div class="panel-heading">
+          <h3 class="panel-title">Javascript</h3>
+       </div>
+     <div class="panel-body">
+       <pre>
+angular.module('MarvelApp').controller('SignUpController', ['$scope', '$http',function ($scope,$http) {
+
+    $scope.insert = function (user) {
+        $http.post("/signup", user)
+    .success(function (response) {
+
+        
+    });
+    };
+
+} ]);
+ 
+       </pre>
+      </div>
+   </div>
+ </div>
+
+ 
+
+ 
+
+  <div class="summary">
+
+  <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">References</h3>
+  </div>
+  <div class="panel-body">
+    <pre>
+
+    I referred to professor Jose's video on youtube.Here is the link.
+    </pre>
+    <a href="https://www.youtube.com/watch?v=Kan1sMNOlIc">Click to View</a>
+</div>
+ </div>
+  
+  </div>
+
+  <div class="container">
+        <div class="btn-group">
+             <a href="../fileview/Default.aspx?~/Week7/partials/signup.html" class="btn btn-primary">View Source HTML</a>
+             <a href="../fileview/Default.aspx?~/Week7/js/signup.js" class="btn btn-primary">View Javascript</a>  
+             <a href="../fileview/Default.aspx?~/Week7/js/app.js" class="btn btn-primary">Main App JS</a>       
+        <div>
+  </div>
+
+ 
+</body>
+</html>

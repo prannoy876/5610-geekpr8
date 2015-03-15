@@ -1,0 +1,72 @@
+﻿.movie-container
+{
+   padding:20px; 
+}
+.poster
+{
+    margin:5px;
+    float:left;
+}
+
+body
+{
+    background:url('../images/background.jpg');
+    background-attachment:fixed;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing:0 5px;
+  -moz-border-radius: 15px;
+   border-radius: 15px;
+  border: 20px solid rgba(0, 0, 0, 0.3);
+  content: " ";
+  z-index: 10;
+  display: block;
+  /*position: absolute;*/
+  height: 100%;
+  background:rgba(0, 0, 0, 0.5);
+}
+
+
+thead th{
+ box-shadow: 0 0.25em 0.1em -0.1em rgba(0,0,0,.125);
+        z-index: 100;
+        background-color:#ADFF2F;
+        color: #696969
+        height:45px;
+        font-family:Calibri;
+        font-size:24px;
+        
+}
+
+tr
+{
+    font-family:Calibri;
+    font-size:14px;
+    font-weight:bold;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
+
+tbody td {
+  background-color: #FFFFFF;
+}
+
+tr td:first-child,
+tr th:first-child {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+tr td:last-child,
+tr th:last-child {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.poster
+{
+    margin:5px;
+    float:left;
+}
