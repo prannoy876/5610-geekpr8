@@ -1,0 +1,180 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.min.js"></script>
+    
+ 
+
+</head>
+
+<style>
+.movie-container
+{
+   padding:100px;
+}
+.poster
+{
+    margin:5px;
+    float:left;
+}
+.well
+{
+    margin:0px;
+    width:900px;
+}
+
+ul,li
+{
+    width:900px;
+}
+</style>
+<body>
+
+ <nav class="navbar  navbar-fixed-top navbar-inverse" id="my-navbar">
+       <div class="container">
+         <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+             </button>
+              <a href="" class="navbar-brand">cs5610</a>
+          </div>
+
+          
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <a href="Experiments.aspx" class="btn btn-info navbar-btn navbar-right">Experiments</a>
+                <ul class=" nav navbar-nav">
+                   <li class="active"><a href="../Default.aspx">Home</a></li>
+                </ul>
+            </div>
+       </div>
+  </nav>
+
+  <div class="movie-container container" >
+
+  <a href="http://prannoy5610-crazyfunkadelic.rhcloud.com/container.html#/login" class="btn btn-primary">View Demo</a>
+
+  </div>
+  </div>
+
+
+
+  <div class="summary">
+    <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">About the Experiment</h3>
+  </div>
+  <div class="panel-body">
+    <pre>
+      This experiment is all about protecting certain pages that should be accessed 
+      only after the user is authenticated.For example the a person's profile page and private
+      information cannot be made publically avilable.In order to implement this when sensitive URL'S
+      are requested,we check if a session is set.If not we redirect the user to Login else we 
+      serve the desired page.In the beow example notice how we create a resolve{  } which checks
+      if a session is in progress with the server and only then serves the required page.
+
+    </pre>
+</div>
+ </div>
+
+ 
+
+ <div class="summary">
+    <div class="panel panel-default">
+       <div class="panel-heading">
+          <h3 class="panel-title">Javascript(Angular)</h3>
+       </div>
+     <div class="panel-body">
+       <pre>
+        when('/dashboard', {
+           
+           resolve:
+           { loggedin: function ($q, $timeout, $http, $location, $rootScope) {
+
+        
+               var deferred = $q.defer();
+               $http.get('/loggedin').success(function (user) {
+
+                   $rootScope.errorMessage = null;
+                   if (user !== '0') {
+                       $rootScope.currentUser = user;
+                       deferred.resolve();
+                   }
+                   else {
+
+                       $rootScope.errorMessage = 'You need to log in';
+                       deferred.reject();
+                       $location.url('/login');
+                   }
+               });
+           }
+           },
+           templateUrl: 'partials/dashboard.html',
+           css: 'css/dashboard.css',
+           controller: 'DashboardController'
+
+       </pre>
+      </div>
+   </div>
+ </div>
+
+
+
+ <div class="summary">
+    <div class="panel panel-default">
+       <div class="panel-heading">
+          <h3 class="panel-title">Javascript(Server.js)</h3>
+       </div>
+     <div class="panel-body">
+       <pre>
+    app.get("/loggedin",function(req,res)
+     {
+          res.send(req.isAuthenticated() ? req.user : '0');
+
+     });
+       </pre>
+      </div>
+   </div>
+ </div>
+
+
+ 
+
+ 
+
+  <div class="summary">
+
+  <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">References</h3>
+  </div>
+  <div class="panel-body">
+    <pre>
+
+    I referred to professor Jose's video on youtube.Here is the link.
+    </pre>
+    <a href="https://www.youtube.com/watch?v=Kan1sMNOlIc">Click to View</a>
+</div>
+ </div>
+  
+  </div>
+
+  <div class="container">
+        <div class="btn-group">
+             <a href="../fileview/Default.aspx?~/Week8/js/app.js" class="btn btn-primary">Main App JS</a> 
+             <a href="../fileview/Default.aspx?~/Week8/server.js" class="btn btn-primary">Server JS</a>
+                   
+        <div>  
+  </div>
+
+ 
+</body>
+</html>

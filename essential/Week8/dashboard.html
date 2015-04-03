@@ -1,0 +1,267 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.min.js"></script>
+    
+ 
+
+</head>
+
+<style>
+.movie-container
+{
+   padding:100px;
+}
+.poster
+{
+    margin:5px;
+    float:left;
+}
+.well
+{
+    margin:0px;
+    width:900px;
+}
+
+ul,li
+{
+    width:900px;
+}
+</style>
+<body>
+
+ <nav class="navbar  navbar-fixed-top navbar-inverse" id="my-navbar">
+       <div class="container">
+         <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+             </button>
+              <a href="" class="navbar-brand">cs5610</a>
+          </div>
+
+          
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <a href="Experiments.aspx" class="btn btn-info navbar-btn navbar-right">Experiments</a>
+                <ul class=" nav navbar-nav">
+                   <li class="active"><a href="../Default.aspx">Home</a></li>
+                </ul>
+            </div>
+       </div>
+  </nav>
+
+  <div class="movie-container container" >
+
+  <a href="http://prannoy5610-crazyfunkadelic.rhcloud.com/container.html#/login" class="btn btn-primary">View Demo</a>
+
+  </div>
+  </div>
+
+
+
+  <div class="summary">
+    <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">About the Experiment</h3>
+  </div>
+  <div class="panel-body">
+    <pre>
+      In this experiment I went about designing my dashboard page that shows up
+      when the user logs in.This is not the user's profile page but the home page which
+      provides the user with easy access to other features of the web site.A lot of
+      TIME and PAINS have been taken to develop this page but it is by no means complete.I 
+      will constantly be making it better in future experimental itertions.Have a peak
+      at the dashboard.css files for more information.I am also using the MARVEL Developer API
+      to create the API.
+
+    </pre>
+</div>
+ </div>
+
+ <div class="summary">
+    <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">HTML5</h3>
+  </div>
+  <div class="panel-body">
+ <br />
+ &lt;script src=&quot;js/animations.js&quot;&gt;&lt;/script&gt;<br />
+&lt;div ng-controller=&quot;DashboardController&quot; class=&quot;container&quot;&gt;<br />
+  &lt;div id=&quot;custom-bootstrap-menu&quot; class=&quot;navbar navbar-default &quot; role=&quot;navigation&quot;&gt;<br />
+     &lt;div class=&quot;container-fluid&quot;&gt;<br />
+        &lt;div class=&quot;navbar-header&quot;&gt;&lt;a class=&quot;navbar-brand&quot; href=&quot;#&quot;&gt; &lt;img style=&quot; max-height:52px; max-width:140px; margin-top: -15px;&quot;<br />
+             src=&quot;../images/brand.jpg&quot;&gt;&lt;/a&gt;<br />
+            &lt;button type=&quot;button&quot; class=&quot;navbar-toggle&quot; data-toggle=&quot;collapse&quot; data-target=&quot;.navbar-menubuilder&quot;&gt;&lt;span class=&quot;sr-only&quot;&gt;Toggle navigation&lt;/span&gt;&lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;&lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;&lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;<br />
+            &lt;/button&gt;<br />
+        &lt;/div&gt;<br />
+        &lt;div class=&quot;collapse navbar-collapse navbar-menubuilder&quot;&gt;<br />
+            &lt;ul class=&quot;nav navbar-nav navbar-left&quot;&gt;<br />
+                &lt;li&gt;&lt;a href=&quot;/&quot;&gt;Home&lt;/a&gt;<br />
+                &lt;/li&gt;<br />
+                &lt;li&gt;&lt;a href=&quot;/products&quot;&gt;Comics&lt;/a&gt;<br />
+                &lt;/li&gt;<br />
+                &lt;li&gt;&lt;a href=&quot;#/character&quot;&gt;Characters&lt;/a&gt;<br />
+                &lt;/li&gt;<br />
+                &lt;li&gt;&lt;a href=&quot;/contact&quot;&gt;Movies&lt;/a&gt;<br />
+                &lt;/li&gt;<br />
+                 &lt;li&gt;&lt;a href=&quot;/contact&quot;&gt;TV&lt;/a&gt;<br />
+                &lt;/li&gt;<br />
+                 &lt;li&gt;&lt;a ng-click=&quot;logout()&quot;&gt;Logout&lt;/a&gt;<br />
+                &lt;/li&gt;<br />
+                 &lt;li&gt;&lt;a ng-click=&quot;&quot;&gt;{{name}}&lt;/a&gt;<br />
+                &lt;/li&gt;<br />
+            &lt;/ul&gt;<br />
+         &lt;/div&gt;<br />
+      &lt;/div&gt;<br />
+  &lt;/div&gt;<br />
+<br />
+ <br />
+  &lt;div class=&quot;container&quot;&gt;<br />
+  &lt;br&gt;<br />
+  &lt;div id=&quot;myCarousel&quot; class=&quot;carousel slide&quot; data-ride=&quot;carousel&quot;&gt;<br />
+    &lt;!-- Indicators --&gt;<br />
+    &lt;ol class=&quot;carousel-indicators&quot;&gt;<br />
+      &lt;li data-target=&quot;#myCarousel&quot; data-slide-to=&quot;0&quot; class=&quot;active&quot;&gt;&lt;/li&gt;<br />
+      &lt;li data-target=&quot;#myCarousel&quot; data-slide-to=&quot;1&quot;&gt;&lt;/li&gt;<br />
+      &lt;li data-target=&quot;#myCarousel&quot; data-slide-to=&quot;2&quot;&gt;&lt;/li&gt;<br />
+     &lt;/ol&gt;<br />
+<br />
+    &lt;!-- Wrapper for slides --&gt;<br />
+    &lt;div class=&quot;carousel-inner&quot; role=&quot;listbox&quot;&gt;<br />
+      &lt;div class=&quot;item active&quot;&gt;<br />
+        &lt;img src=&quot;images/2.jpg&quot; alt=&quot;Chania&quot; width=&quot;900&quot; height=&quot;345&quot;&gt;<br />
+      &lt;/div&gt;<br />
+      &lt;div class=&quot;item&quot;&gt;<br />
+        &lt;img src=&quot;images/im-1.jpg&quot; alt=&quot;Flower&quot; width=&quot;900&quot; height=&quot;345&quot;&gt;<br />
+      &lt;/div&gt;<br />
+<br />
+      &lt;div class=&quot;item&quot;&gt;<br />
+        &lt;img src=&quot;images/3.jpg&quot; alt=&quot;Flower&quot; width=&quot;900&quot; height=&quot;345&quot;&gt;<br />
+      &lt;/div&gt;<br />
+    &lt;/div&gt;<br />
+<br />
+    &lt;!-- Left and right controls --&gt;<br />
+    &lt;a class=&quot;left carousel-control&quot; role=&quot;button&quot; data-slide=&quot;prev&quot;&gt;<br />
+      &lt;span class=&quot;glyphicon glyphicon-chevron-left&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;<br />
+      &lt;span class=&quot;sr-only&quot;&gt;Previous&lt;/span&gt;<br />
+    &lt;/a&gt;<br />
+    &lt;a class=&quot;right carousel-control&quot;  role=&quot;button&quot; data-slide=&quot;next&quot;&gt;<br />
+      &lt;span class=&quot;glyphicon glyphicon-chevron-right&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;<br />
+      &lt;span class=&quot;sr-only&quot;&gt;Next&lt;/span&gt;<br />
+    &lt;/a&gt;<br />
+  &lt;/div&gt;<br />
+&lt;/div&gt;<br />
+<br />
+&lt;div class=&quot;first-row container&quot;&gt;<br />
+&lt;div class=&quot;row&quot;&gt;<br />
+  &lt;div class=&quot;col-sm-6 col-md-4&quot;&gt;<br />
+    &lt;div class=&quot;thumbnail&quot;&gt;<br />
+      &lt;img src=&quot;../images/Ultron.jpg&quot; alt=&quot;Avengers:Age of Ultron&quot;  height=&quot;120&quot; width=&quot;336&quot;&gt;<br />
+      &lt;div class=&quot;caption&quot;&gt;<br />
+        &lt;h3&gt;Avengers:Age of Ultron&lt;/h3&gt;<br />
+        &lt;p&gt;Check out the latest upcoming marvel movie<br />
+           Avengers:Age of Ultron&lt;/p&gt;<br />
+        &lt;p&gt;&lt;a  class=&quot;btn btn-primary&quot; role=&quot;button&quot;&gt;Button&lt;/a&gt; &lt;a  class=&quot;btn btn-primary2&quot; role=&quot;button&quot;&gt;Button&lt;/a&gt;&lt;/p&gt;<br />
+      &lt;/div&gt;<br />
+    &lt;/div&gt;<br />
+  &lt;/div&gt;<br />
+<br />
+<br />
+  &lt;div class=&quot;col-sm-6 col-md-4&quot;&gt;<br />
+    &lt;div class=&quot;thumbnail&quot;&gt;<br />
+      &lt;img src=&quot;../images/spiderman-game.jpg&quot; alt=&quot;Avengers:Age of Ultron&quot;  height=&quot;120&quot; width=&quot;336&quot;&gt;<br />
+      &lt;div class=&quot;caption&quot;&gt;<br />
+        &lt;h3&gt;Games&lt;/h3&gt;<br />
+        &lt;p&gt;Check out the latest games available<br />
+        on PlayStation,XBox,Nintendo &amp; 3DS&lt;/p&gt;<br />
+        &lt;p&gt;&lt;a  class=&quot;btn btn-primary&quot; role=&quot;button&quot;&gt;Button&lt;/a&gt; &lt;a  class=&quot;btn btn-primary2&quot; role=&quot;button&quot;&gt;Button&lt;/a&gt;&lt;/p&gt;<br />
+      &lt;/div&gt;<br />
+    &lt;/div&gt;<br />
+  &lt;/div&gt;<br />
+<br />
+<br />
+  &lt;div class=&quot;col-sm-6 col-md-4&quot;&gt;<br />
+    &lt;div class=&quot;thumbnail&quot;&gt;<br />
+      &lt;img src=&quot;../images/comic-con.jpg&quot; alt=&quot;...&quot; height=&quot;120&quot; width=&quot;336&quot;&gt;<br />
+      &lt;div class=&quot;caption&quot;&gt;<br />
+        &lt;h3&gt;Comicon&lt;/h3&gt;<br />
+        &lt;p&gt;It's time for Comicon-San Diego!Be a part<br />
+        of all the fun.&lt;/p&gt;<br />
+        &lt;p&gt;&lt;a class=&quot;btn btn-primary&quot; role=&quot;button&quot;&gt;Button&lt;/a&gt; &lt;a class=&quot;btn btn-primary2&quot; role=&quot;button&quot;&gt;Button&lt;/a&gt;&lt;/p&gt;<br />
+      &lt;/div&gt;<br />
+    &lt;/div&gt;<br />
+  &lt;/div&gt;<br />
+&lt;/div&gt;<br />
+&lt;/div&gt;<br />
+<br />
+<br />
+<br />
+&lt;/div&gt;
+  </div>
+</div>
+ </div>
+
+ <div class="summary">
+    <div class="panel panel-default">
+       <div class="panel-heading">
+          <h3 class="panel-title">Javascript(Angular)</h3>
+       </div>
+     <div class="panel-body">
+       <pre>
+
+angular.module('MarvelApp').controller('DashboardController', ['$scope', '$http', '$location', '$rootScope', function ($scope, $http, $location, $rootScope) {
+
+    $scope.name = $rootScope.currentUser.fname;
+    $scope.logout = function () {
+
+        $http.post("/logout")
+    .success(function (response) {
+        $location.url("/login");
+
+    });
+    }
+} ]);
+
+       </pre>
+      </div>
+   </div>
+ </div>
+
+
+  <div class="summary">
+
+  <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">References</h3>
+  </div>
+  <div class="panel-body">
+    <pre>
+
+    I referred to professor Jose's video on youtube.Here is the link.
+    </pre>
+    <a href="https://www.youtube.com/watch?v=Kan1sMNOlIc">Click to View</a>
+</div>
+ </div>
+  
+  </div>
+
+  <div class="container">
+        <div class="btn-group">
+             <a href="../fileview/Default.aspx?~/Week8/partials/dashboard.html" class="btn btn-primary">View Source HTML</a>
+             <a href="../fileview/Default.aspx?~/Week8/js/dashboard.js" class="btn btn-primary">View Javascript</a>  
+             <a href="../fileview/Default.aspx?~/Week8/js/app.js" class="btn btn-primary">Main App JS</a> 
+             <a href="../fileview/Default.aspx?~/Week8/server.js" class="btn btn-primary">Server JS</a>
+                   
+        <div>  
+  </div>
+
+ 
+</body>
+</html>

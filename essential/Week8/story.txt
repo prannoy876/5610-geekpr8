@@ -1,0 +1,6 @@
+﻿
+login.html    Login using Passport.js 
+dashboard.html      The Project Home Page
+protection.html     Protecting sensitve pages
+character.html      Displaying characters via API calls
+favorites.html      Displaying the User's favorites
