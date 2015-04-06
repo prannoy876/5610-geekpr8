@@ -1,0 +1,200 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.min.js"></script>
+    
+ 
+
+</head>
+
+<style>
+.movie-container
+{
+   padding:100px;
+}
+.poster
+{
+    margin:5px;
+    float:left;
+}
+.well
+{
+    margin:0px;
+    width:900px;
+}
+
+ul,li
+{
+    width:900px;
+}
+</style>
+<body>
+
+ <nav class="navbar  navbar-fixed-top navbar-inverse" id="my-navbar">
+       <div class="container">
+         <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+             </button>
+              <a href="" class="navbar-brand">cs5610</a>
+          </div>
+
+          
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <a href="Experiments.aspx" class="btn btn-info navbar-btn navbar-right">Experiments</a>
+                <ul class=" nav navbar-nav">
+                   <li class="active"><a href="../Default.aspx">Home</a></li>
+                </ul>
+            </div>
+       </div>
+  </nav>
+
+  <div class="movie-container container" >
+
+  <a href="http://prannoy5610-crazyfunkadelic.rhcloud.com/container.html#/portfolio/1011334" class="btn btn-primary">View Demo</a>
+
+  </div>
+  </div>
+
+
+
+  <div class="summary">
+    <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">About the Experiment</h3>
+  </div>
+  <div class="panel-body">
+    <pre>
+       In this experiment,I demonstrate the use of Angular Directives.With the help of
+       angular directives you can have greater control of your angular app and over the 
+       DOM.In this experiment I am making use of Carousel which displays the images
+       of all comics belonging to a particular character.But I cannot display the carousel 
+       until all the images have been recieved from the API(Asynchronous).I could set a timeout
+       before the carousel is loaded but still there is no guarantee.By using a user-defined directive
+       I listen to "LAST" angular-repeat which loads the carousel list which fires the directive which then
+       in turn,fires the jquery function which generates the carousel that refers to the list(That is
+       already loaded previously by ng-repeat).
+
+    </pre>
+</div>
+ </div>
+
+ <div class="summary">
+    <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">HTML5</h3>
+  </div>
+  <div class="panel-body">
+ <br />
+ <pre>
+  &lt;h2&gt;Comics involving {{charInfo.name}}&lt;/h2&gt;<br />
+        &lt;div class=&quot;row&quot;&gt;<br />
+          &lt;div class=&quot;span12&quot;&gt;<br />
+          &lt;div ng-hide=&quot;loaded&quot;&gt;<br />
+           &lt;img src=&quot;images/loading.GIF&quot; /&gt;<br />
+           &lt;/div&gt;<br />
+            &lt;div id=&quot;owl-demo&quot; class=&quot;owl-carousel&quot; ng-show=&quot;loaded&quot;&gt;<br />
+              &lt;div  ng-repeat=&quot;book in list | filter:filterFm&quot; on-last-repeat&gt;&lt;img  class=&quot;poster&quot; ng-click = &quot;getComic(book.id)&quot; src=&quot;{{book.thumbnail.path}}.{{ book.thumbnail.extension}}&quot;&gt;&lt;/div&gt;<br />
+            &lt;/div&gt;<br />
+<br />
+          &lt;/div&gt;<br />
+          &lt;/div&gt;<br />
+ <br />
+ </pre>
+  </div>
+</div>
+ </div>
+
+ 
+
+
+ <div class="summary">
+    <div class="panel panel-default">
+       <div class="panel-heading">
+          <h3 class="panel-title">Javascript(Angular)</h3>
+       </div>
+     <div class="panel-body">
+       <pre>
+       angular.module('MarvelApp').directive('onLastRepeat', function () {
+    return function (scope, element, attrs) {
+        if (scope.$last) setTimeout(function () {
+            scope.$emit('onRepeatLast', element, attrs);
+        }, 10000);
+    };
+})
+
+
+ $scope.$on('onRepeatLast', function (scope, element, attrs) {
+        console.log('Executing');
+        setTimeout(function () {
+            $("#owl-demo").owlCarousel({
+                autoPlay: 3000,
+                stopOnHover: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 3
+                    },
+                    1000: {
+                        items: 3
+                    }
+                },
+                navigation: true,
+                paginationSpeed: 1000,
+                goToFirstSpeed: 2000,
+                autoHeight: true,
+                transitionStyle: "fade"
+            });
+        }, 3000);
+
+        $timeout(function () { $scope.loaded = true; }, 2000);
+
+    });
+
+       </pre>
+      </div>
+   </div>
+ </div>
+
+
+  <div class="summary">
+
+  <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">References</h3>
+  </div>
+  <div class="panel-body">
+    <pre>
+
+    I referred to professor Jose's video on youtube.Here is the link.
+    </pre>
+    <a href="https://www.youtube.com/watch?v=Kan1sMNOlIc">Click to View</a>
+</div>
+ </div>
+  
+  </div>
+
+  <div class="container">
+        <div class="btn-group">
+             <a href="../fileview/Default.aspx?~/Week9/partials/portfolio.html" class="btn btn-primary">View Source HTML</a>
+             <a href="../fileview/Default.aspx?~/Week9/js/portfolio.js" class="btn btn-primary">View Javascript</a>  
+             <a href="../fileview/Default.aspx?~/Week9/js/app.js" class="btn btn-primary">Main App JS</a> 
+             <a href="../fileview/Default.aspx?~/Week9/server.js" class="btn btn-primary">Server JS</a>
+             <a href="../fileview/Default.aspx?~/Week9/css/profile.css" class="btn btn-primary"> CSS</a>
+        <div>  
+  </div>
+
+ 
+</body>
+</html>

@@ -1,0 +1,326 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.min.js"></script>
+    
+ 
+
+</head>
+
+<style>
+.movie-container
+{
+   padding:100px;
+}
+.poster
+{
+    margin:5px;
+    float:left;
+}
+.well
+{
+    margin:0px;
+    width:900px;
+}
+
+ul,li
+{
+    width:900px;
+}
+</style>
+<body>
+
+ <nav class="navbar  navbar-fixed-top navbar-inverse" id="my-navbar">
+       <div class="container">
+         <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+             </button>
+              <a href="" class="navbar-brand">cs5610</a>
+          </div>
+
+          
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <a href="Experiments.aspx" class="btn btn-info navbar-btn navbar-right">Experiments</a>
+                <ul class=" nav navbar-nav">
+                   <li class="active"><a href="../Default.aspx">Home</a></li>
+                </ul>
+            </div>
+       </div>
+  </nav>
+
+  <div class="movie-container container" >
+
+  <a href="http://prannoy5610-crazyfunkadelic.rhcloud.com/container.html#/login" class="btn btn-primary">View Demo</a>
+
+  </div>
+  </div>
+
+
+
+  <div class="summary">
+    <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">About the Experiment</h3>
+  </div>
+  <div class="panel-body">
+    <pre>
+     In this experiment,I have created  the user's dedicated profile page.
+     It basically keeps track of all the user's interactions with the web page.
+     A user can edit the list of characters that he likes and can also
+     see the list of comics that he recently reviewed.For a future experiment i will 
+     let a user view another user's profile page.
+
+    </pre>
+</div>
+ </div>
+
+ <div class="summary">
+    <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">HTML5</h3>
+  </div>
+  <div class="panel-body">
+ <br />
+ <pre>
+    
+  &lt;body&gt;<br />
+  &lt;div  class=&quot;movie-container container&quot;&gt;<br />
+    <br />
+   &lt;div id=&quot;custom-bootstrap-menu&quot; class=&quot;navbar navbar-default &quot; role=&quot;navigation&quot;&gt;<br />
+     &lt;div class=&quot;container-fluid&quot;&gt;<br />
+        &lt;div class=&quot;navbar-header&quot;&gt;&lt;a class=&quot;navbar-brand&quot; href=&quot;#&quot;&gt; &lt;img style=&quot; max-height:52px; max-width:140px; margin-top: -15px;&quot;<br />
+             src=&quot;../images/brand.jpg&quot;&gt;&lt;/a&gt;<br />
+            &lt;button type=&quot;button&quot; class=&quot;navbar-toggle&quot; data-toggle=&quot;collapse&quot; data-target=&quot;.navbar-menubuilder&quot;&gt;&lt;span class=&quot;sr-only&quot;&gt;Toggle navigation&lt;/span&gt;&lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;&lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;&lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;<br />
+            &lt;/button&gt;<br />
+        &lt;/div&gt;<br />
+        &lt;div class=&quot;collapse navbar-collapse navbar-menubuilder&quot;&gt;<br />
+            &lt;ul class=&quot;nav navbar-nav navbar-left&quot;&gt;<br />
+                &lt;li&gt;&lt;a href=&quot;#/dashboard&quot;&gt;Home&lt;/a&gt;<br />
+                &lt;/li&gt;<br />
+                &lt;li&gt;&lt;a &gt;Comics&lt;/a&gt;<br />
+                &lt;/li&gt;<br />
+                &lt;li&gt;&lt;a href=&quot;#/character&quot;&gt;Characters&lt;/a&gt;<br />
+                &lt;/li&gt;<br />
+                &lt;li&gt;&lt;a &gt;Movies&lt;/a&gt;<br />
+                &lt;/li&gt;<br />
+                 &lt;li&gt;&lt;a&gt;TV&lt;/a&gt;<br />
+                &lt;/li&gt;<br />
+                &lt;/ul&gt;<br />
+                &lt;ul class=&quot;nav navbar-nav navbar-right&quot;&gt;<br />
+                &lt;li class=&quot;dropdown&quot;&gt;<br />
+                  &lt;a class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot; role=&quot;button&quot; aria-expanded=&quot;false&quot;&gt;{{name}}&lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;&lt;/a&gt;<br />
+                  &lt;ul class=&quot;dropdown-menu&quot; role=&quot;menu&quot;&gt;<br />
+                    &lt;li&gt;&lt;a href=&quot;#/cart&quot;&gt;Cart&lt;/a&gt;&lt;/li&gt;<br />
+                    &lt;li&gt;&lt;a href=&quot;#/personal&quot;&gt;Favourite Characters&lt;/a&gt;&lt;/li&gt;<br />
+                    &lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;<br />
+                    &lt;li&gt;&lt;a ng-click=&quot;logout()&quot;&gt;Logout&lt;/a&gt;&lt;/li&gt;<br />
+          &lt;/ul&gt;<br />
+        &lt;/li&gt;<br />
+                &lt;/ul&gt;<br />
+            &lt;/ul&gt;<br />
+         &lt;/div&gt;<br />
+      &lt;/div&gt;<br />
+  &lt;/div&gt;<br />
+    <br />
+    <br />
+     &lt;div class=&quot;jumbotron&quot;&gt;<br />
+       &lt;p&gt;Welcome {{name}}!&lt;/p&gt;<br />
+     &lt;/div&gt;<br />
+     <br />
+     &lt;/br&gt;<br />
+     &lt;/br&gt;<br />
+<br />
+   &lt;h2&gt;Your Favorite Characters&lt;/h2&gt;<br />
+   &lt;!--vkgjckgf--&gt;<br />
+        &lt;div class=&quot;row&quot;&gt;<br />
+          &lt;div class=&quot;span12&quot;&gt;<br />
+          &lt;div class=&quot;loading&quot; ng-hide=&quot;loaded&quot;&gt;<br />
+           &lt;img src=&quot;images/loading.GIF&quot; /&gt;<br />
+           &lt;/div&gt;<br />
+            &lt;div id=&quot;owl-demo2&quot; class=&quot;owl-carousel&quot; ng-show=&quot;loaded&quot;&gt;<br />
+              &lt;div  ng-repeat=&quot;hero in   character&quot; on-last-repeat &gt;&lt;a  ng-click = &quot;selectCharacter(hero.charid)&quot; data-toggle=&quot;modal&quot; data-target=&quot;#myModal2&quot;&gt;&lt;img  class=&quot;poster&quot;  src=&quot;{{hero.image}}&quot;/&gt;&lt;/a&gt;&lt;/div&gt;<br />
+            &lt;/div&gt;<br />
+<br />
+          &lt;/div&gt;<br />
+          &lt;/div&gt;<br />
+<br />
+<br />
+<br />
+     &lt;h2&gt;You Recently Reviewed&lt;/h2&gt;<br />
+        &lt;div class=&quot;row&quot;&gt;<br />
+          &lt;div class=&quot;span12&quot;&gt;<br />
+          &lt;div class=&quot;loading&quot; ng-hide=&quot;loaded2&quot;&gt;<br />
+           &lt;img src=&quot;images/loading.GIF&quot; /&gt;<br />
+           &lt;/div&gt;<br />
+            &lt;div id=&quot;owl-demo3&quot; class=&quot;owl-carousel&quot;&gt;<br />
+              &lt;div  ng-repeat=&quot;book in reviewed&quot; on-last-repeat2 &gt;&lt;a  ng-click =&quot;selectComic(book.comicid)&quot; &gt;&lt;img  class=&quot;poster&quot;  src=&quot;{{book.image}}&quot;/&gt;&lt;/a&gt;&lt;/div&gt;<br />
+            &lt;/div&gt;<br />
+<br />
+          &lt;/div&gt;<br />
+          &lt;/div&gt;<br />
+<br />
+<br />
+<br />
+<br />
+  &lt;div class=&quot;modal fade bs-example-modal-lg&quot; data-backdrop=&quot;static&quot; id=&quot;myModal2&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot; <br />
+   aria-labelledby=&quot;myModalLabel&quot; aria-hidden=&quot;true&quot;&gt;<br />
+   &lt;div class=&quot;modal-dialog&quot;&gt;<br />
+      &lt;div class=&quot;modal-content&quot;&gt;<br />
+         &lt;div class=&quot;modal-header&quot;&gt;<br />
+            &lt;button type=&quot;button&quot; class=&quot;close&quot; <br />
+               data-dismiss=&quot;modal&quot; aria-hidden=&quot;true&quot;&gt;<br />
+                  &amp;times;<br />
+            &lt;/button&gt;<br />
+            &lt;h4 class=&quot;modal-title&quot; id=&quot;H1&quot;&gt;<br />
+               What do you want to do?<br />
+            &lt;/h4&gt;<br />
+         &lt;/div&gt;<br />
+         &lt;div class=&quot;modal-footer&quot;&gt;<br />
+            &lt;button type=&quot;button&quot; class=&quot;btn btn-success&quot; <br />
+               ng-click=&quot;viewCharacter()&quot; data-dismiss=&quot;modal&quot;&gt;Character Description<br />
+            &lt;/button&gt;<br />
+            &lt;button type=&quot;button&quot; ng-click=&quot;deleteFavorite()&quot; data-dismiss=&quot;modal&quot; ng-click=&quot;updateQuantity(value)&quot; class=&quot;btn btn-danger&quot;&gt;<br />
+              Delete from favorites<br />
+            &lt;/button&gt;<br />
+         &lt;/div&gt;<br />
+      &lt;/div&gt;&lt;!-- /.modal-content --&gt;<br />
+&lt;/div&gt;&lt;!-- /.modal --&gt;<br />
+&lt;/div&gt;<br />
+<br />
+<br />
+&lt;script src=&quot;http://owlgraphic.com/owlcarousel/assets/js/bootstrap-collapse.js&quot;&gt;&lt;/script&gt;<br />
+    &lt;script src=&quot;http://owlgraphic.com/owlcarousel/assets/js/bootstrap-transition.js&quot;&gt;&lt;/script&gt;<br />
+    &lt;script src=&quot;http://owlgraphic.com/owlcarousel/assets/js/bootstrap-tab.js&quot;&gt;&lt;/script&gt;<br />
+	  &lt;script src=&quot;http://owlgraphic.com/owlcarousel/assets/js/application.js&quot;&gt;&lt;/script&gt;<br />
+  &lt;script src=&quot;http://owlgraphic.com/owlcarousel/owl-carousel/owl.carousel.js&quot;&gt;&lt;/script&gt;<br />
+      <br />
+&lt;/div&gt;<br />
+ <br />
+<br />
+ <br />
+  &lt;/body&gt;<br />
+
+ </pre>
+  </div>
+</div>
+ </div>
+
+ 
+
+
+ <div class="summary">
+    <div class="panel panel-default">
+       <div class="panel-heading">
+          <h3 class="panel-title">Javascript(Angular)</h3>
+       </div>
+     <div class="panel-body">
+       <pre>
+      angular.module('MarvelApp').directive('onLastRepeat', function () {
+    return function (scope, element, attrs) {
+        if (scope.$last) setTimeout(function () {
+            scope.$emit('onRepeatLast', element, attrs);
+        }, 1000);
+    };
+}).directive('onLastRepeat2', function () {
+    return function (scope, element, attrs) {
+        if (scope.$last) setTimeout(function () {
+            scope.$emit('onRepeatLast2', element, attrs);
+        }, 2000);
+    };
+})
+.controller('PersonalController', ['$scope', '$http','$location','$rootScope', '$route','$timeout', function ($scope, $http, $location, $rootScope,$route,$timeout) {
+  
+    $http.get('/loggedin').success(function (user) {
+        $rootScope.errorMessage = null;
+        if (user !== '0') {
+            $rootScope.currentUser = user;
+             $scope.name = $rootScope.currentUser.fname;
+             $scope.id = $rootScope.currentUser._id;
+              $scope.loggedin=true;
+
+             $http.get("/favchars/" + $scope.id).success(function (response) {
+
+        var arrays = [], size = 4;
+        console.log(response);
+          if(response==null ||  response=="")
+             { 
+                  $scope.loaded=true;
+                  
+             }
+        if (response != null) {
+
+            $scope.character = response;
+
+
+
+        }
+
+        else {
+
+
+        }
+    });
+
+        $http.get("/getComicsReviewed/" + $scope.id)
+        .success(function (response) {
+            $scope.reviewed = response;
+            if($scope.reviewed==null ||  $scope.reviewed=="")
+             { 
+                  $scope.loaded2=true;
+                    
+             }
+            console.log($scope.reviewed);
+        });
+
+        }
+        else {
+            $location.url('/login');
+        }
+    });
+ 
+       </pre>
+      </div>
+   </div>
+ </div>
+
+
+  <div class="summary">
+
+  <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">References</h3>
+  </div>
+  <div class="panel-body">
+    <pre>
+
+    I referred to professor Jose's video on youtube.Here is the link.
+    </pre>
+    <a href="https://www.youtube.com/watch?v=Kan1sMNOlIc">Click to View</a>
+</div>
+ </div>
+  
+  </div>
+
+  <div class="container">
+        <div class="btn-group">
+             <a href="../fileview/Default.aspx?~/Week9/partials/personal.html" class="btn btn-primary">View Source HTML</a>
+             <a href="../fileview/Default.aspx?~/Week9/js/personal.js" class="btn btn-primary">View Javascript</a>  
+             <a href="../fileview/Default.aspx?~/Week9/js/app.js" class="btn btn-primary">Main App JS</a> 
+             <a href="../fileview/Default.aspx?~/Week9/server.js" class="btn btn-primary">Server JS</a>
+             <a href="../fileview/Default.aspx?~/Week9/css/personal.css" class="btn btn-primary"> CSS</a>
+        <div>  
+  </div>
+
+ 
+</body>
+</html>

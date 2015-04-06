@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.min.js"></script>
+    
+ 
+
+</head>
+
+<style>
+.movie-container
+{
+   padding:100px;
+}
+.poster
+{
+    margin:5px;
+    float:left;
+}
+.well
+{
+    margin:0px;
+    width:900px;
+}
+
+ul,li
+{
+    width:900px;
+}
+</style>
+<body>
+
+ <nav class="navbar  navbar-fixed-top navbar-inverse" id="my-navbar">
+       <div class="container">
+         <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+             </button>
+              <a href="" class="navbar-brand">cs5610</a>
+          </div>
+
+          
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <a href="Experiments.aspx" class="btn btn-info navbar-btn navbar-right">Experiments</a>
+                <ul class=" nav navbar-nav">
+                   <li class="active"><a href="../Default.aspx">Home</a></li>
+                </ul>
+            </div>
+       </div>
+  </nav>
+
+  <div class="movie-container container" >
+
+  <a href="http://prannoy5610-crazyfunkadelic.rhcloud.com/container.html#/login" class="btn btn-primary">View Demo</a>
+
+  </div>
+  </div>
+
+
+
+  <div class="summary">
+    <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">About the Experiment</h3>
+  </div>
+  <div class="panel-body">
+    <pre>
+      In this experiment,I have coded a feature  which lets the user
+      post reviews on the comics he likes.The user cannot post more than 1 review.
+      He can also delete his reviews if he wants to.Whenever a user reviews a comic
+      book,that comic book gets added to his profile and it shows under "Comics
+      Recently Reviews".Steps to execute this experiment.
+
+      1.Go to any comic book page.
+      2.Post a review.
+      3.Visit your profile.
+      4.The poster for that comic will show up on your profile under recently reviewed.
+
+    </pre>
+</div>
+ </div>
+
+ <div class="summary">
+    <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">HTML5</h3>
+  </div>
+  <div class="panel-body">
+ <br />
+ <pre>
+    &lt;div class=&quot;container&quot;&gt;<br />
+  &lt;h3&gt;Fan Reviews&lt;/h3&gt;<br />
+  &lt;ul class=&quot;list-group&quot;&gt;<br />
+   &lt;li class=&quot;list-group-item well&quot; ng-repeat=&quot;r in reviews&quot;&gt;<br />
+   &lt;p&gt;&lt;h4&gt;{{r.name}}&lt;/h4&gt;&lt;/p&gt;<br />
+   &lt;p&gt;{{r.review}}&lt;/p&gt;<br />
+   &lt;p&gt;&lt;a ng-click =&quot;deleteReview(r._id,r.comicid)&quot; data-target=&quot;#myModal2&quot; data-toggle=&quot;modal&quot;  ng-if=&quot;r.userid == id&quot; class=&quot;btn btn-danger&quot;&gt;Delete Review&lt;/a&gt;&lt;/p&gt;<br />
+   &lt;/li&gt; <br />
+  &lt;li class=&quot;input-group&quot;&gt;<br />
+   &lt;textarea  ng-model=&quot;newReview&quot; style=&quot;height:45px&quot; class=&quot;form-control&quot;&gt;&lt;/textarea&gt;<br />
+   &lt;span class=&quot;input-group-btn&quot;&gt;<br />
+        &lt;button class=&quot;btn btn-success&quot; ng-click=&quot;addReview(bookInfo)&quot; style=&quot;height:45px&quot; type=&quot;button&quot;&gt;Post&lt;/button&gt;<br />
+   &lt;/span&gt;<br />
+   &lt;/li&gt;<br />
+   &lt;/ul&gt;<br />
+  &lt;/div&gt;<br />
+
+ </pre>
+  </div>
+</div>
+ </div>
+
+ 
+
+
+ <div class="summary">
+    <div class="panel panel-default">
+       <div class="panel-heading">
+          <h3 class="panel-title">Javascript(Angular)</h3>
+       </div>
+     <div class="panel-body">
+       <pre>
+         $scope.deleteReview = function (id,comicid) {
+       $scope.rowid=id;
+       $scope.comicid=comicid;
+       
+    }
+
+    $scope.deleteReviewFinal = function () {
+        $http.delete("/deleteReview/" + $scope.rowid + "/comic/" + $scope.comicid)
+    .success(function (response) {
+       
+       $scope.reviews=response;
+
+    });
+
+    }
+
+    $scope.addReview = function (book) {
+
+        if($scope.loggedin)
+        {
+        var row = { userid: $scope.id, comicid: book.id, name: $scope.name, review: $scope.newReview, image: encodeURI(book.thumbnail.path + '.' + book.thumbnail.extension) };
+        console.log(row);
+        $http.post("/addReview/" + $scope.id + "/id/" + book.id, row)
+        .success(function (response) {
+            if (response === '0') {
+                alert('review exists');
+            }
+            else {
+                $http.get("/getReview/" + $scope.bookId)
+        .success(function (response) {
+            $scope.reviews = response;
+
+        });
+            }
+
+        });
+
+    }
+    else
+      {
+        $location.url('/login');
+      }
+
+    }
+       </pre>
+      </div>
+   </div>
+ </div>
+
+
+  <div class="summary">
+
+  <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">References</h3>
+  </div>
+  <div class="panel-body">
+    <pre>
+
+    I referred to professor Jose's video on youtube.Here is the link.
+    </pre>
+    <a href="https://www.youtube.com/watch?v=Kan1sMNOlIc">Click to View</a>
+</div>
+ </div>
+  
+  </div>
+
+  <div class="container">
+        <div class="btn-group">
+             <a href="../fileview/Default.aspx?~/Week9/partials/comic.html" class="btn btn-primary">View Source HTML</a>
+             <a href="../fileview/Default.aspx?~/Week9/js/comic.js" class="btn btn-primary">View Javascript</a>  
+             <a href="../fileview/Default.aspx?~/Week9/js/app.js" class="btn btn-primary">Main App JS</a> 
+             <a href="../fileview/Default.aspx?~/Week9/server.js" class="btn btn-primary">Server JS</a>
+             <a href="../fileview/Default.aspx?~/Week9/css/comic.css" class="btn btn-primary"> CSS</a>
+        <div>  
+  </div>
+
+ 
+</body>
+</html>

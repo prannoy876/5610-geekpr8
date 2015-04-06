@@ -1,0 +1,259 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.min.js"></script>
+    
+ 
+
+</head>
+
+<style>
+.movie-container
+{
+   padding:100px;
+}
+.poster
+{
+    margin:5px;
+    float:left;
+}
+.well
+{
+    margin:0px;
+    width:900px;
+}
+
+ul,li
+{
+    width:900px;
+}
+</style>
+<body>
+
+ <nav class="navbar  navbar-fixed-top navbar-inverse" id="my-navbar">
+       <div class="container">
+         <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+             </button>
+              <a href="" class="navbar-brand">cs5610</a>
+          </div>
+
+          
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <a href="Experiments.aspx" class="btn btn-info navbar-btn navbar-right">Experiments</a>
+                <ul class=" nav navbar-nav">
+                   <li class="active"><a href="../Default.aspx">Home</a></li>
+                </ul>
+            </div>
+       </div>
+  </nav>
+
+  <div class="movie-container container" >
+
+  <a href="http://prannoy5610-crazyfunkadelic.rhcloud.com/container.html#/cart" class="btn btn-primary">View Demo</a>
+
+  </div>
+  </div>
+
+
+
+  <div class="summary">
+    <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">About the Experiment</h3>
+  </div>
+  <div class="panel-body">
+    <pre>
+       In this experiment,I have added a feature which lets the user add
+       comics to his shopping cart before he checks out.He also edit,delete and update the
+       quantity of comics that he adds to the shopping cart before he checks out  which is
+       a really good feature.
+
+       STEPS TO EXECUTE THE EXPERIMENT:
+
+       1.MAKE AN ACCOUNT OR USE MY CREDENTIALS
+       2.SELECT A COMIC AND CLICK"ADD TO CART"
+       3.GO TO YOUR CART AND TRY PLAYING AROUND WITH STUFF LIKE UPDATING/DELETING ENTRIES.
+
+
+
+
+    </pre>
+</div>
+ </div>
+
+ <div class="summary">
+    <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">HTML5</h3>
+  </div>
+  <div class="panel-body">
+ <br />
+ <pre>
+  &lt;div class=&quot;container&quot;&gt;<br />
+     &lt;table class=&quot;table table-hover table-responsive&quot;&gt;<br />
+     &lt;thead&gt;<br />
+     &lt;tr&gt;<br />
+<br />
+           &lt;th&gt;Title&lt;/th&gt;<br />
+           &lt;th&gt;Quantity&lt;/th&gt;<br />
+           &lt;th&gt;Price&lt;/th&gt;<br />
+<br />
+     &lt;/tr&gt;<br />
+     &lt;/thead&gt;<br />
+      <br />
+     &lt;tbody&gt; <br />
+     &lt;tr  ng-repeat=&quot;book in items&quot;&gt;<br />
+          &lt;td&gt;&lt;img ng-click = &quot;getComic(book.comicid)&quot; class=&quot;poster&quot;src=&quot;{{book.image}}&quot; width=&quot;70&quot; height=&quot;100&quot;/&gt;<br />
+           {{book.title}}&lt;/td&gt; <br />
+           &lt;td&gt;{{book.quantity}}&lt;/td&gt;<br />
+           &lt;td&gt;{{book.price}}&lt;/td&gt; <br />
+            &lt;td&gt;&lt;button ng-click=&quot;setItemToDelete(book.comicid)&quot; class=&quot;btn btn-danger&quot; data-toggle=&quot;modal&quot;<br />
+              data-target=&quot;#myModal&quot;&gt;<br />
+                   <br />
+                     &lt;span class=&quot;glyphicon glyphicon-remove&quot; /&gt;<br />
+             &lt;/button&gt;<br />
+             &lt;button  role=&quot;button&quot; ng-click=&quot;editOrder(book)&quot;class=&quot;btn btn-warning&quot; data-toggle=&quot;modal&quot; data-target=&quot;#myModal2&quot;&gt;<br />
+                     &lt;span class=&quot;glyphicon glyphicon-pencil&quot; /&gt;<br />
+             &lt;/button&gt;&lt;/td&gt;        <br />
+     &lt;/tr&gt;<br />
+     &lt;/tbody&gt;<br />
+  &lt;/table&gt;<br />
+  &lt;/div&gt;<br />
+  &lt;/div&gt;
+
+ </pre>
+  </div>
+</div>
+ </div>
+
+ 
+
+
+ <div class="summary">
+    <div class="panel panel-default">
+       <div class="panel-heading">
+          <h3 class="panel-title">Javascript(Angular)</h3>
+       </div>
+     <div class="panel-body">
+       <pre>
+      angular.module('MarvelApp').controller('CartController', ['$scope', '$http', '$location', '$rootScope', '$routeParams', function ($scope, $http, $location, $rootScope, $routeParams) {
+
+$scope.items=null;
+    $scope.deleteItem=null;
+    $scope.updateItemQuantity = null;
+    $scope.updateItem = null;
+$http.get('/loggedin').success(function (user) {
+
+                   $rootScope.errorMessage = null;
+                   if (user !== '0') {
+                      $scope.name = $rootScope.currentUser.fname;
+                      $scope.id = $rootScope.currentUser._id;
+                      $scope.loggedin = true;
+                       $http.get("/cartitems/" + $scope.id)
+                        .success(function (response) {
+
+                            $scope.items = response;
+                        });
+                   }
+                   else {
+                       $location.url('/login');
+                   }
+                   });
+
+    
+
+   
+
+
+    $scope.getComic = function (id) {
+
+        $location.url("/comic/" + id);
+    }
+
+    $scope.setItemToDelete = function(id)
+    {
+        $scope.deleteItem = id;
+
+    }
+
+     $scope.editOrder = function(book)
+    {
+        $scope.updateItemQuantity = book.quantity;
+        $scope.updateItem = book.comicid;
+    }
+
+     $scope.removeComic=function(){
+      $http.delete("/removeComic/"+ $scope.id + "/id/" + $scope.deleteItem)
+    .success(function (response) {
+
+           $scope.items=response;
+    });
+    }
+
+   
+     $scope.updateQuantity=function(value){
+      $http.put("/updateQuantity/"+ $scope.id + "/id/" + $scope.updateItem + "/qty/" + value)
+    .success(function (response) {
+
+           $scope.items=response;
+    });
+
+    };
+
+
+    $scope.logout = function () {
+
+        $http.post("/logout")
+    .success(function (response) {
+        $location.url("/login");
+
+    });
+    }
+
+} ]);
+       </pre>
+      </div>
+   </div>
+ </div>
+
+
+  <div class="summary">
+
+  <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">References</h3>
+  </div>
+  <div class="panel-body">
+    <pre>
+
+    I referred to professor Jose's video on youtube.Here is the link.
+    </pre>
+    <a href="https://www.youtube.com/watch?v=Kan1sMNOlIc">Click to View</a>
+</div>
+ </div>
+  
+  </div>
+
+  <div class="container">
+        <div class="btn-group">
+             <a href="../fileview/Default.aspx?~/Week9/partials/cart.html" class="btn btn-primary">View Source HTML</a>
+             <a href="../fileview/Default.aspx?~/Week9/js/cart.js" class="btn btn-primary">View Javascript</a>  
+             <a href="../fileview/Default.aspx?~/Week9/js/app.js" class="btn btn-primary">Main App JS</a> 
+             <a href="../fileview/Default.aspx?~/Week9/server.js" class="btn btn-primary">Server JS</a>
+             <a href="../fileview/Default.aspx?~/Week9/css/cart.css" class="btn btn-primary"> CSS</a>
+        <div>  
+  </div>
+
+ 
+</body>
+</html>

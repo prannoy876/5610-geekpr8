@@ -1,0 +1,5 @@
+﻿Experiment1.html     Angular JS directives
+Experiment2.html     Comic Shopping Cart
+Experiment3.html     Comic Reviews
+Experiment4.html     Bootstrap Modals
+Experiment5.html     Displaying the user's profile page
