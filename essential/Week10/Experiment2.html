@@ -1,0 +1,207 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+       <script src="js/exp2.js"></script>
+   <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.min.js"></script>
+    
+ 
+
+</head>
+
+<style>
+.movie-container
+{
+   padding:100px;
+}
+.poster
+{
+    margin:5px;
+    float:left;
+}
+.well
+{
+    margin:0px;
+    width:900px;
+}
+
+ul,li
+{
+    width:900px;
+}
+
+#overlay-for-contacts
+{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width:100%;
+    height:300%;
+    text-align:center;
+    z-index: 1000;
+    background-color:#ffffff;
+    opacity: 0.95;
+    filter:alpha(opacity=95);
+    -moz-opacity: 0.95;
+}
+
+#overlay-for-contacts-inside
+{
+     width:300px;
+	 height:150px;
+     margin: 60px auto;
+	 /*border-right:#000 thin groove;
+	 border-bottom:#000 thin groove;*/
+     padding:15px;
+     text-align:center;
+	-moz-box-shadow: 0 0 5px #888;
+	-webkit-box-shadow: 0 0 5px #888;
+	box-shadow: 0 0 5px #888;
+}
+</style>
+<body>
+
+ <nav class="navbar  navbar-fixed-top navbar-inverse" id="my-navbar">
+       <div class="container">
+         <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+             </button>
+              <a href="" class="navbar-brand">cs5610</a>
+          </div>
+
+          
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <a href="Experiments.aspx" class="btn btn-info navbar-btn navbar-right">Experiments</a>
+                <ul class=" nav navbar-nav">
+                   <li class="active"><a href="../Default.aspx">Home</a></li>
+                </ul>
+            </div>
+       </div>
+  </nav>
+
+  <div class="movie-container container" >
+
+   <button type="button" class="btn demo btn-default"  value="Close">View Demo</button>
+
+  </div>
+  </div>
+
+
+
+  <div class="summary">
+    <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">About the Experiment</h3>
+  </div>
+  <div class="panel-body">
+    <pre>
+      This is a really fun experiment!Previously I showed you how to
+      bring up a blocking dialogue using Bootstrap.This time I will teach you how
+      to create your own custom alert/error dialogue which blocks the user from
+      accesing the other DOM elemnts unless he/she dismisses the pop up dialogue.
+   
+    </pre>
+</div>
+ </div>
+
+ <div class="summary">
+    <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">HTML5</h3>
+  </div>
+  <div class="panel-body">
+ <br />
+ <pre>
+ &lt;div id=&quot;overlay-for-contacts&quot; &gt;<br />
+            &lt;div class=&quot;alert alert-info&quot; id=&quot;overlay-for-contacts-inside&quot;&gt;<br />
+            &lt;p class=&quot;info&quot;&gt;&lt;h4&gt;This is the Demo&lt;/h4&gt;&lt;/p&gt;<br />
+            &lt;button type=&quot;button&quot; class=&quot;btn closebutton btn-default&quot;  value=&quot;Close&quot;&gt;Close&lt;/button&gt;<br />
+            &lt;/div&gt;<br />
+    &lt;/div&gt;
+ </pre>
+  </div>
+</div>
+ </div>
+
+ 
+
+
+ <div class="summary">
+    <div class="panel panel-default">
+       <div class="panel-heading">
+          <h3 class="panel-title">Javascript(JQuery)</h3>
+       </div>
+     <div class="panel-body">
+       <pre>
+    $(document).ready(function () {
+    $("#overlay-for-contacts").hide();
+
+
+
+    $(".closebutton").click(function (e) {
+        e.preventDefault();
+        $("#overlay-for-contacts").fadeOut("slow");
+    });
+
+    $(".demo").click(function (e) {
+        e.preventDefault();
+        $("#overlay-for-contacts").fadeIn("slow");
+        $(window).scrollTop($("#overlay-for-contacts").offset().top);
+    });
+
+
+});
+    
+
+       </pre>
+      </div>
+   </div>
+ </div>
+
+
+  <div class="summary">
+
+  <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">References</h3>
+  </div>
+  <div class="panel-body">
+    <pre>
+
+    I referred to professor Jose's video on youtube.Here is the link.
+    </pre>
+    <a href="https://www.youtube.com/watch?v=Kan1sMNOlIc">Click to View</a>
+</div>
+ </div>
+  
+  </div>
+
+   <div id="overlay-for-contacts" >
+            <div class="alert alert-info" id="overlay-for-contacts-inside">
+            <p class="info"><h4>This is the Demo</h4></p>
+            <button type="button" class="btn closebutton btn-default"  value="Close">Close</button>
+            </div>
+    </div>
+
+  <div class="container">
+        <div class="btn-group">
+             
+             <a href="../fileview/Default.aspx?~/Week10/js/exp2.js" class="btn btn-primary">JQuery</a>
+             
+        <div>  
+  </div>
+
+ 
+</body>
+</html>

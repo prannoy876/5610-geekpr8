@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.min.js"></script>
+</head>
+
+<style>
+.movie-container
+{
+   padding:100px;
+}
+.poster
+{
+    margin:5px;
+    float:left;
+}
+.well
+{
+    margin:0px;
+    width:900px;
+}
+
+ul,li
+{
+    width:900px;
+}
+</style>
+<body>
+
+ <nav class="navbar  navbar-fixed-top navbar-inverse" id="my-navbar">
+       <div class="container">
+         <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+             </button>
+              <a href="" class="navbar-brand">cs5610</a>
+          </div>
+
+          
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <a href="Experiments.aspx" class="btn btn-info navbar-btn navbar-right">Experiments</a>
+                <ul class=" nav navbar-nav">
+                   <li class="active"><a href="../Default.aspx">Home</a></li>
+                </ul>
+            </div>
+       </div>
+  </nav>
+
+  <div class="movie-container container" >
+
+  <a href="http://prannoy5610-crazyfunkadelic.rhcloud.com/container.html#/character" class="btn btn-primary">View Demo</a>
+
+  </div>
+  </div>
+
+
+
+  <div class="summary">
+    <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">About the Experiment(Routing Schema)</h3>
+  </div>
+  <div class="panel-body">
+    <pre>
+      In this experiment I demonstrate the routing schema of my project.
+      My project is a single page application that is made up
+      of many views.Whenever the route changes ,angular's routing
+      mechanism listen's to this change and map's the appropriate
+      view to render.but before the view is rendered we want to check
+      certain conditions like if the user is loggedin or not and take the following actions.
+      In areas where user information has to be protected we have a resolve promise
+      that checks if the user is logged and only then render's the view.
+    </pre>
+</div>
+ </div>
+
+ 
+
+ <div class="summary">
+    <div class="panel panel-default">
+       <div class="panel-heading">
+          <h3 class="panel-title">Javascript(Angular)</h3>
+       </div>
+     <div class="panel-body">
+       <pre>
+       
+       angular.module('MarvelApp', ['ngRoute', 'door3.css']).config(['$routeProvider',
+  function ($routeProvider) {
+      $routeProvider.
+      when('/', {
+          templateUrl: 'partials/signup.html',
+          css: 'css/signup.css',
+          controller: 'SignUpController'
+      }).
+      when('/character', {
+          templateUrl: 'partials/characters.html',
+          css: 'css/characters.css',
+          controller: 'MarvelController'
+      }).
+       when('/login', {
+           templateUrl: 'partials/login.html',
+           controller: 'LoginController',
+           css:'css/login.css'
+       }).
+       when('/movie', {
+           templateUrl: 'partials/movie.html',
+           controller: 'MovieController'
+       }).
+        when('/personal', {
+            resolve:
+           { loggedin: function ($q, $timeout, $http, $location, $rootScope) {
+
+
+               var deferred = $q.defer();
+               $http.get('/loggedin').success(function (user) {
+
+                   $rootScope.errorMessage = null;
+                   if (user !== '0') {
+                       $rootScope.currentUser = user;
+                       deferred.resolve();
+                   }
+                   else {
+
+                       $rootScope.errorMessage = 'You need to log in';
+                       deferred.reject();
+                       $location.url('/login');
+                   }
+               });
+           }
+           },
+            templateUrl: 'partials/personal.html',
+            controller: 'PersonalController',
+            css: 'css/personal.css'
+        }).
+       </pre>
+      </div>
+   </div>
+ </div>
+
+
+
+  <div class="summary">
+
+  <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">References</h3>
+  </div>
+  <div class="panel-body">
+    <pre>
+
+    I referred to professor Jose's video on youtube.Here is the link.
+    </pre>
+    <a href="https://www.youtube.com/watch?v=Kan1sMNOlIc">Click to View</a>
+</div>
+ </div>
+  
+  </div>
+
+  <div class="container">
+        <div class="btn-group">
+             <a href="../fileview/Default.aspx?~/Week10/js/app.js" class="btn btn-primary">Main App JS</a>         
+        <div>  
+  </div>
+
+ 
+</body>
+</html>
