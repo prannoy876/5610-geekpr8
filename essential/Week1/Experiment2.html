@@ -1,0 +1,212 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.min.js"></script>
+     <link rel="stylesheet" type="text/css" href="css-home/reset.css">
+	<link rel="stylesheet" type="text/css" href="css-home/main_responsive.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/carouFredSel.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+   
+ 
+
+</head>
+
+<style>
+.movie-container
+{
+   margin-top:100px;
+   padding:10px;
+}
+.poster
+{
+    margin:5px;
+    float:left;
+}
+.well
+{
+    margin:0px;
+    width:900px;
+}
+
+ul,li
+{
+    width:900px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th,td {
+    padding: 15px;
+}
+</style>
+<body>
+
+ <nav class="navbar  navbar-fixed-top navbar-inverse" id="my-navbar">
+       <div class="container">
+         <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+             </button>
+              <a href="" class="navbar-brand">cs5610</a>
+          </div>
+
+          
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <a href="Experiments.aspx" class="btn btn-info navbar-btn navbar-right">Experiments</a>
+                <ul class=" nav navbar-nav">
+                   <li class="active"><a href="../Default.aspx">Home</a></li>
+                </ul>
+            </div>
+       </div>
+  </nav>
+
+  <div class="movie-container container" >
+  <p><h2>Use of Radio Buttons</h2></p>
+   <form >
+        <fieldset>
+                <legend>What is Your Favorite Pet?</legend>
+                        <input type="radio" name="animal" value="Cat" />Cats<br />
+                        <input type="radio" name="animal" value="Dog" />Dogs<br />
+                        <input type="radio" name="animal" value="Bird" />Birds<br />
+                        <input type="submit" value="Submit now" />
+        </fieldset>
+ </form>
+
+
+
+ <p><h2>Use of HTML5 Dropdown Menu</h2></p>
+ <form >
+        <select name="Icecream Flavours">
+                <option value="double chocolate">Double Chocolate</option>
+                <option value="vanilla">Vanilla</option>
+                <option value="strawberry">Strawberry</option>
+                <option value="caramel">Caramel</option>
+        </select>
+</form>
+
+
+
+<p><h2>Use of HTML5 Checkboxes</h2></p>
+<form >
+        <fieldset>
+                <legend>What is Your Favorite Pet?</legend>
+                        <input type="checkbox" name="animal" value="Cat" />Cats <br />
+                        <input type="checkbox" name="animal" value="Dog" />Dogs<br />
+                        <input type="checkbox" name="animal" value="Bird" />Birds<br />
+                        <input type="submit" value="Submit now" />
+        </fieldset>
+</form>
+
+  </div>
+
+
+ 
+
+  <div class="summary">
+    <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">About the Experiment</h3>
+  </div>
+  <div class="panel-body">
+    <pre>
+     This experiment is about how various input elements
+     like checkboxes,radiobuttons and dropdown menus can be
+     used to create interactive simple to complex
+     forms which can accomplish a wide variety of funtions
+
+
+    </pre>
+</div>
+ </div>
+
+ <div class="summary">
+    <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">HTML5</h3>
+  </div>
+  <div class="panel-body">
+ <pre>
+  &lt;div class=&quot;movie-container container&quot; &gt;<br />
+  &lt;p&gt;&lt;h2&gt;Use of Radio Buttons&lt;/h2&gt;&lt;/p&gt;<br />
+   &lt;form &gt;<br />
+        &lt;fieldset&gt;<br />
+                &lt;legend&gt;What is Your Favorite Pet?&lt;/legend&gt;<br />
+                        &lt;input type=&quot;radio&quot; name=&quot;animal&quot; value=&quot;Cat&quot; /&gt;Cats&lt;br /&gt;<br />
+                        &lt;input type=&quot;radio&quot; name=&quot;animal&quot; value=&quot;Dog&quot; /&gt;Dogs&lt;br /&gt;<br />
+                        &lt;input type=&quot;radio&quot; name=&quot;animal&quot; value=&quot;Bird&quot; /&gt;Birds&lt;br /&gt;<br />
+                        &lt;input type=&quot;submit&quot; value=&quot;Submit now&quot; /&gt;<br />
+        &lt;/fieldset&gt;<br />
+ &lt;/form&gt;<br />
+<br />
+<br />
+<br />
+ &lt;p&gt;&lt;h2&gt;Use of HTML5 Dropdown Menu&lt;/h2&gt;&lt;/p&gt;<br />
+ &lt;form &gt;<br />
+        &lt;select name=&quot;Icecream Flavours&quot;&gt;<br />
+                &lt;option value=&quot;double chocolate&quot;&gt;Double Chocolate&lt;/option&gt;<br />
+                &lt;option value=&quot;vanilla&quot;&gt;Vanilla&lt;/option&gt;<br />
+                &lt;option value=&quot;strawberry&quot;&gt;Strawberry&lt;/option&gt;<br />
+                &lt;option value=&quot;caramel&quot;&gt;Caramel&lt;/option&gt;<br />
+        &lt;/select&gt;<br />
+&lt;/form&gt;<br />
+<br />
+<br />
+<br />
+&lt;p&gt;&lt;h2&gt;Use of HTML5 Checkboxes&lt;/h2&gt;&lt;/p&gt;<br />
+&lt;form &gt;<br />
+        &lt;fieldset&gt;<br />
+                &lt;legend&gt;What is Your Favorite Pet?&lt;/legend&gt;<br />
+                        &lt;input type=&quot;checkbox&quot; name=&quot;animal&quot; value=&quot;Cat&quot; /&gt;Cats &lt;br /&gt;<br />
+                        &lt;input type=&quot;checkbox&quot; name=&quot;animal&quot; value=&quot;Dog&quot; /&gt;Dogs&lt;br /&gt;<br />
+                        &lt;input type=&quot;checkbox&quot; name=&quot;animal&quot; value=&quot;Bird&quot; /&gt;Birds&lt;br /&gt;<br />
+                        &lt;input type=&quot;submit&quot; value=&quot;Submit now&quot; /&gt;<br />
+        &lt;/fieldset&gt;<br />
+&lt;/form&gt;<br />
+<br />
+  &lt;/div&gt;<br />
+
+
+ </pre>
+  </div>
+</div>
+ </div>
+
+
+  <div class="summary">
+
+  <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">References</h3>
+  </div>
+  <div class="panel-body">
+    <pre>
+
+    I referred to professor Jose's video on youtube.Here is the link.
+    </pre>
+    <a href="https://www.youtube.com/watch?v=Kan1sMNOlIc">Click to View</a>
+</div>
+ </div>
+  
+  </div>
+
+  <div class="container">
+        <div class="btn-group">
+             <a href="../fileview/Default.aspx?~/Week1/Experiment5.html" class="btn btn-primary">View Source HTML</a>     
+        <div>
+  </div>
+
+ 
+</body>
+</html>

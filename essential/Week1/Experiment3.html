@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.min.js"></script>
+     <link rel="stylesheet" type="text/css" href="css-home/reset.css">
+	<link rel="stylesheet" type="text/css" href="css-home/main_responsive.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/carouFredSel.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+   
+ 
+
+</head>
+
+<style>
+.movie-container
+{
+   margin-top:100px;
+   padding:10px;
+}
+.poster
+{
+    margin:5px;
+    float:left;
+}
+.well
+{
+    margin:0px;
+    width:900px;
+}
+
+ul,li
+{
+    width:900px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th,td {
+    padding: 15px;
+}
+</style>
+<body>
+
+ <nav class="navbar  navbar-fixed-top navbar-inverse" id="my-navbar">
+       <div class="container">
+         <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+             </button>
+              <a href="" class="navbar-brand">cs5610</a>
+          </div>
+
+          
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <a href="Experiments.aspx" class="btn btn-info navbar-btn navbar-right">Experiments</a>
+                <ul class=" nav navbar-nav">
+                   <li class="active"><a href="../Default.aspx">Home</a></li>
+                </ul>
+            </div>
+       </div>
+  </nav>
+
+  <div class="movie-container container" >
+    <h2>Forms in HTML5</h2>
+      <form>
+    First name:<br>
+    <input type="text" name="firstname">
+    <br>
+    Last name:<br>
+    <input type="text" name="lastname">
+    </form>
+
+ </div>
+
+
+  <div class="movie-container container" >
+      <h2>Tables in HTML5</h2>
+     <table style="width:100%">
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th> 
+        <th>Points</th>
+      </tr>
+      <tr>
+        <td>Jill</td>
+        <td>Smith</td>		
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>Eve</td>
+        <td>Jackson</td>		
+        <td>94</td>
+      </tr>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>		
+        <td>80</td>
+      </tr>
+    </table>
+
+</div>
+
+
+ 
+ 
+ 
+
+
+
+  <div class="summary">
+    <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">About the Experiment</h3>
+  </div>
+  <div class="panel-body">
+    <pre>
+        This experiment shows how a very important HTML5
+        elements like tablrs and forms can be created.
+
+    </pre>
+</div>
+ </div>
+
+ <div class="summary">
+    <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">HTML5</h3>
+  </div>
+  <div class="panel-body">
+ <pre>
+ &lt;div class=&quot;movie-container container&quot; &gt;<br />
+    &lt;h2&gt;Forms in HTML5&lt;/h2&gt;<br />
+      &lt;form&gt;<br />
+    First name:&lt;br&gt;<br />
+    &lt;input type=&quot;text&quot; name=&quot;firstname&quot;&gt;<br />
+    &lt;br&gt;<br />
+    Last name:&lt;br&gt;<br />
+    &lt;input type=&quot;text&quot; name=&quot;lastname&quot;&gt;<br />
+    &lt;/form&gt;<br />
+<br />
+ &lt;/div&gt;<br />
+<br />
+<br />
+  &lt;div class=&quot;movie-container container&quot; &gt;<br />
+      &lt;h2&gt;Tables in HTML5&lt;/h2&gt;<br />
+     &lt;table style=&quot;width:100%&quot;&gt;<br />
+      &lt;tr&gt;<br />
+        &lt;th&gt;Firstname&lt;/th&gt;<br />
+        &lt;th&gt;Lastname&lt;/th&gt; <br />
+        &lt;th&gt;Points&lt;/th&gt;<br />
+      &lt;/tr&gt;<br />
+      &lt;tr&gt;<br />
+        &lt;td&gt;Jill&lt;/td&gt;<br />
+        &lt;td&gt;Smith&lt;/td&gt;		<br />
+        &lt;td&gt;50&lt;/td&gt;<br />
+      &lt;/tr&gt;<br />
+      &lt;tr&gt;<br />
+        &lt;td&gt;Eve&lt;/td&gt;<br />
+        &lt;td&gt;Jackson&lt;/td&gt;		<br />
+        &lt;td&gt;94&lt;/td&gt;<br />
+      &lt;/tr&gt;<br />
+      &lt;tr&gt;<br />
+        &lt;td&gt;John&lt;/td&gt;<br />
+        &lt;td&gt;Doe&lt;/td&gt;		<br />
+        &lt;td&gt;80&lt;/td&gt;<br />
+      &lt;/tr&gt;<br />
+    &lt;/table&gt;<br />
+<br />
+&lt;/div&gt;
+ </pre>
+  </div>
+</div>
+ </div>
+
+ 
+
+ 
+
+  <div class="summary">
+
+  <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">References</h3>
+  </div>
+  <div class="panel-body">
+    <pre>
+
+    I referred to professor Jose's video on youtube.Here is the link.
+    </pre>
+    <a href="https://www.youtube.com/watch?v=Kan1sMNOlIc">Click to View</a>
+</div>
+ </div>
+  
+  </div>
+
+  <div class="container">
+        <div class="btn-group">
+             <a href="../fileview/Default.aspx?~/Week1/Experiment3.html" class="btn btn-primary">View Source HTML</a>     
+        <div>
+  </div>
+
+ 
+</body>
+</html>
