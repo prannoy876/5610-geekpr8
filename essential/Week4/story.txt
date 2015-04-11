@@ -1,4 +1,5 @@
-﻿Angular1.aspx Simple Movie Search with Angular and Web API
+﻿Angular0.html Use of ng-model in Angular
+Angular1.aspx Simple Movie Search with Angular and Web API
 Angular2.aspx Dynamic Searching using Angular
 Angular3.aspx Validation with Angular
 Angular4.aspx Animation using Angular-JS
